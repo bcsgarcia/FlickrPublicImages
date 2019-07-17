@@ -8,37 +8,12 @@
 
 import Foundation
 
-/*
-{
-    "photos": {
-        "page": 2,
-        "pages": 4729,
-        "perpage": 1,
-        "total": "4729",
-        "photo": [
-            {
-                "id": "48285503736",
-                "owner": "49191827@N00",
-                "secret": "7c6c8e82b2",
-                "server": "65535",
-                "farm": 66,
-                "title": "well's fine cars. selma, ca. 2014.",
-                "ispublic": 1,
-                "isfriend": 0,
-                "isfamily": 0
-            }
-        ]
-    },
-    "stat": "ok"
-}
- */
-
 class Photo: Codable {
     var id: String = ""
     var owner: String = ""
     var title: String = ""
-    
     var image: [Size]?
-    
-    
+    var url_n: String = ""
+    var count_comments: String = ""
+    var count_faves: String = ""
 }

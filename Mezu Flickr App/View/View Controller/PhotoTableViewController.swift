@@ -17,6 +17,7 @@ class PhotoTableViewController: UITableViewController {
     var checkInternetTimer: Timer!
     let checkInternetTimeInterval : TimeInterval = 3
     let cellId = "photoCell"
+    let segueIdentifier = "segueDetail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,6 @@ class PhotoTableViewController: UITableViewController {
     // MARK: - UI Setup
     private func activityIndicatorStart() {
         DispatchQueue.main.async {
-            self.indicator.isHidden = false
             self.indicator.startAnimating()
         }
     }
@@ -93,7 +93,8 @@ class PhotoTableViewController: UITableViewController {
             self.indicator.center = self.view.center
             
             //indicator.hidesWhenStopped = true
-            self.view.addSubview(self.indicator)
+            self.navigationController?.view.addSubview(self.indicator)
+            //self.view.addSubview(self.indicator)
         }
     }
     
@@ -132,10 +133,12 @@ extension PhotoTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*
-        let repositoryCellViewModel = photoCellViewModel[indexPath.row]
         
-        guard let url = URL(string: repositoryCellViewModel.url) else {
+        let vm = photoCellViewModel[indexPath.row]
+        
+        performSegue(withIdentifier: self.segueIdentifier, sender: vm)
+        
+        /*guard let url = URL(string: repositoryCellViewModel.url) else {
             return
         }
         
@@ -147,10 +150,25 @@ extension PhotoTableViewController {
          */
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segueIdentifier {
+            if let photoDetailVC = segue.destination as? PhotoDetailViewController{
+                //detailViewController.VIN = (sender as! Vehicle).vin //Or pass any values
+                
+                guard let photoCellViewModel = sender as? PhotoCellViewModel else {
+                    return
+                }
+                
+                photoDetailVC.photo = photoCellViewModel.photo
+            }
+        }
+        //self.hidesBottomBarWhenPushed = false
+    }
         
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.photoCellViewModels.count-1 {
+        if indexPath.row == viewModel.photoCellViewModels.count-2 {
             self.attemptFetchData()
         }
     }

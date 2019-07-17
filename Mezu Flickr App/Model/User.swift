@@ -7,18 +7,6 @@
 //
 
 import Foundation
-/*
-{
-    "user": {
-        "id": "147698239@N02",
-        "nsid": "147698239@N02",
-        "username": {
-            "_content": "brunogarcia12"
-        }
-    },
-    "stat": "ok"
-}
- */
 
 class User: Codable {
     var id: String = ""

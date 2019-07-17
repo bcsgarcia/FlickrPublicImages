@@ -11,19 +11,46 @@ import UIKit
 class PhotoCell: UITableViewCell {
 
     
+    @IBOutlet weak var lblUsername: UILabel!
     @IBOutlet weak var ivPhoto: UIImageView!
+    @IBOutlet weak var lblFavoriteCount: UILabel!
+    @IBOutlet weak var lblComentCount: UILabel!
+    @IBOutlet weak var ivProfile: UIImageView!
+    
     
     
     var photoCellViewModel: PhotoCellViewModel! {
         didSet {
-            if self.photoCellViewModel.imageSizeList.count == 0 {
-                photoCellViewModel.getImageList { (sizeList) in
-                    self.photoCellViewModel.imageSizeList = sizeList
-                    self.ivPhoto.loadImageUsingUrlString(urlString: sizeList[4].source)
+            
+            self.lblComentCount.text = self.photoCellViewModel.photo.count_comments
+            self.lblFavoriteCount.text = self.photoCellViewModel.photo.count_faves
+            self.lblUsername.text = self.photoCellViewModel.person.username._content
+            
+            //self.ivPhoto.image = self.photoCellViewModel.photoImage
+            self.ivPhoto.loadImageUsingUrlString(urlString: self.photoCellViewModel.photo.url_n)
+            self.ivProfile.loadImageUsingUrlString(urlString: self.photoCellViewModel.imgProfileUrl)
+   
+            /*
+            photoCellViewModel.updatePhotoImage = {
+                DispatchQueue.main.async {
+                    self.ivPhoto.image = self.photoCellViewModel.photoImage
                 }
-            } else {
-                self.ivPhoto.loadImageUsingUrlString(urlString: self.photoCellViewModel.imageSizeList[4].source)
-            }
+            }*/
+   
+            //self.ivProfile.image = self.photoCellViewModel.profileImage
+            
+            /*photoCellViewModel.updateProfileImage = {
+                DispatchQueue.main.async {
+                    self.ivProfile.image = self.photoCellViewModel.profileImage
+                }
+            }*/
+ 
+            
+            self.ivProfile.layer.cornerRadius = 15.0
+            self.ivProfile.layer.masksToBounds = true
+            self.ivProfile.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+            self.ivProfile.layer.borderWidth = 1.0;
+            
         }
     }
     
@@ -34,7 +61,7 @@ class PhotoCell: UITableViewCell {
     override func prepareForReuse(){
         super.prepareForReuse()
         // Reset the cell for new row's data
-        //self.ivPhoto.image = nil
+        //self.ivPhoto.image = #imageLiteral(resourceName: "flickr-icon-logo.png")
         
     }
 

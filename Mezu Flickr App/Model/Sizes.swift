@@ -9,12 +9,10 @@
 import Foundation
 
 class Sizes: Codable {
-    
     var canblog: Int = 0
     var canprint: Int = 0
     var candownload: Int = 0
     var size: [Size] = []
-    
 }
 
 class ResponseSizes: Codable {

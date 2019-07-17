@@ -1,22 +1,23 @@
 //
-//  Photos.swift
+//  Favorite.swift
 //  Mezu Flickr App
 //
-//  Created by Garcia, Bruno (B.C.) on 16/07/19.
+//  Created by Garcia, Bruno (B.C.) on 17/07/19.
 //  Copyright © 2019 Garcia, Bruno (B.C.). All rights reserved.
 //
 
 import Foundation
 
-class Photos: Codable {
+class Favorite: Codable {
+    var id: String = ""
     var page: Int = 0
     var pages: Int = 0
     var perpage: Int = 0
-    var total: String = ""
-    var photo: [Photo] = []
+    var total: Int = 0
 }
 
-class ResponsePhotos: Codable {
-    var photos: Photos = Photos()
+class ResponseFavorites: Codable {
+    var photo: Favorite = Favorite()
     var stat: String = ""
 }
+

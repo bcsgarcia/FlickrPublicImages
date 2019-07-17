@@ -15,7 +15,10 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     
     func loadImageUsingUrlString(urlString: String) {
-        self.image = #imageLiteral(resourceName: "loading.png")
+        DispatchQueue.main.async {
+            self.image = #imageLiteral(resourceName: "flickr-icon-logo.png")    
+        }
+        
         
         if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
             self.image = imageFromCache
@@ -23,11 +26,12 @@ extension UIImageView {
         }
         
         if let url = URL(string: urlString) {
-            DispatchQueue.global().async { [weak self] in
+            DispatchQueue.global().async { //[weak self] in
                 if let data = try? Data(contentsOf: url) {
                     if let image = UIImage(data: data) {
                         DispatchQueue.main.async {
-                            self?.image = image
+                            imageCache.setObject(image, forKey: urlString as AnyObject)
+                            self.image = image
                         }
                     }
                 }

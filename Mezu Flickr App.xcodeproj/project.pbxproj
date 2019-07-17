@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5F778FF922DE0E7F00F3468E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FF822DE0E7F00F3468E /* AppDelegate.swift */; };
-		5F778FFB22DE0E7F00F3468E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FFA22DE0E7F00F3468E /* ViewController.swift */; };
+		5F778FFB22DE0E7F00F3468E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */; };
 		5F778FFE22DE0E7F00F3468E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F778FFC22DE0E7F00F3468E /* Main.storyboard */; };
 		5F77900122DE0E7F00F3468E /* Mezu_Flickr_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FFF22DE0E7F00F3468E /* Mezu_Flickr_App.xcdatamodeld */; };
 		5F77900322DE0E8000F3468E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F77900222DE0E8000F3468E /* Assets.xcassets */; };
 		5F77900622DE0E8000F3468E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F77900422DE0E8000F3468E /* LaunchScreen.storyboard */; };
 		5F77900F22DE156900F3468E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77900E22DE156900F3468E /* ApiManager.swift */; };
 		5F77901122DE33DF00F3468E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901022DE33DF00F3468E /* Router.swift */; };
-		5F77901422DE375E00F3468E /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901322DE375E00F3468E /* Car.swift */; };
 		5F77901622DE41F100F3468E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901522DE41F100F3468E /* User.swift */; };
 		5F77901822DE42A300F3468E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901722DE42A300F3468E /* Photo.swift */; };
 		5F77901A22DE452900F3468E /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901922DE452900F3468E /* Photos.swift */; };
 		5F77901C22DE488C00F3468E /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901B22DE488C00F3468E /* Size.swift */; };
 		5F77901E22DE493E00F3468E /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901D22DE493E00F3468E /* Sizes.swift */; };
 		5F77902022DE4D9700F3468E /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77901F22DE4D9700F3468E /* HttpTask.swift */; };
+		5F77902222DF567900F3468E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902122DF567900F3468E /* Favorite.swift */; };
+		5F77902422DF647600F3468E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902322DF647600F3468E /* Person.swift */; };
+		5F77902722DF8D0400F3468E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902622DF8D0400F3468E /* Config.swift */; };
+		5F77902922DF977A00F3468E /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902822DF977A00F3468E /* Content.swift */; };
+		5F77902B22DFA08B00F3468E /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902A22DFA08B00F3468E /* PhotoDetail.swift */; };
+		5F77902D22DFA22C00F3468E /* PhotoDetailDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902C22DFA22C00F3468E /* PhotoDetailDate.swift */; };
+		5F77902F22DFA34100F3468E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902E22DFA34100F3468E /* Tag.swift */; };
+		5F77903122DFA4BC00F3468E /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */; };
+		5F77903322DFA78300F3468E /* ActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */; };
 		92E091F222DE7CFB000A160C /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */; };
 		92E091F522DE7D36000A160C /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F422DE7D36000A160C /* PhotoListViewModel.swift */; };
 		92E091F722DE841C000A160C /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F622DE841C000A160C /* CheckInternet.swift */; };
@@ -34,7 +42,7 @@
 /* Begin PBXFileReference section */
 		5F778FF522DE0E7F00F3468E /* Mezu Flickr App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mezu Flickr App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F778FF822DE0E7F00F3468E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F778FFA22DE0E7F00F3468E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		5F778FFD22DE0E7F00F3468E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F77900022DE0E7F00F3468E /* Mezu_Flickr_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mezu_Flickr_App.xcdatamodel; sourceTree = "<group>"; };
 		5F77900222DE0E8000F3468E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,13 +50,21 @@
 		5F77900722DE0E8000F3468E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F77900E22DE156900F3468E /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		5F77901022DE33DF00F3468E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		5F77901322DE375E00F3468E /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		5F77901522DE41F100F3468E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5F77901722DE42A300F3468E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		5F77901922DE452900F3468E /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		5F77901B22DE488C00F3468E /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		5F77901D22DE493E00F3468E /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		5F77901F22DE4D9700F3468E /* HttpTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
+		5F77902122DF567900F3468E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		5F77902322DF647600F3468E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		5F77902622DF8D0400F3468E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5F77902822DF977A00F3468E /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		5F77902A22DFA08B00F3468E /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		5F77902C22DFA22C00F3468E /* PhotoDetailDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailDate.swift; sourceTree = "<group>"; };
+		5F77902E22DFA34100F3468E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
+		5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		92E091F422DE7D36000A160C /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		92E091F622DE841C000A160C /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
@@ -88,6 +104,7 @@
 		5F778FF722DE0E7F00F3468E /* Mezu Flickr App */ = {
 			isa = PBXGroup;
 			children = (
+				5F77902522DF8CF400F3468E /* Util */,
 				92E091FD22DE8DC7000A160C /* Extension */,
 				92E091F322DE7D19000A160C /* ViewModel */,
 				92E091EE22DE74AE000A160C /* View */,
@@ -115,14 +132,27 @@
 		5F77901222DE375300F3468E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5F77901322DE375E00F3468E /* Car.swift */,
 				5F77901522DE41F100F3468E /* User.swift */,
 				5F77901722DE42A300F3468E /* Photo.swift */,
 				5F77901922DE452900F3468E /* Photos.swift */,
 				5F77901B22DE488C00F3468E /* Size.swift */,
 				5F77901D22DE493E00F3468E /* Sizes.swift */,
+				5F77902122DF567900F3468E /* Favorite.swift */,
+				5F77902322DF647600F3468E /* Person.swift */,
+				5F77902822DF977A00F3468E /* Content.swift */,
+				5F77902A22DFA08B00F3468E /* PhotoDetail.swift */,
+				5F77902C22DFA22C00F3468E /* PhotoDetailDate.swift */,
+				5F77902E22DFA34100F3468E /* Tag.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5F77902522DF8CF400F3468E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5F77902622DF8D0400F3468E /* Config.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		92E091EE22DE74AE000A160C /* View */ = {
@@ -147,9 +177,10 @@
 		92E091F022DE7C8C000A160C /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5F778FFA22DE0E7F00F3468E /* ViewController.swift */,
+				5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */,
 				92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */,
 				92E0920422DEBA54000A160C /* GradientView.swift */,
+				5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -159,6 +190,7 @@
 			children = (
 				92E091F422DE7D36000A160C /* PhotoListViewModel.swift */,
 				92E091F822DE8710000A160C /* PhotoCellViewModel.swift */,
+				5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,24 +282,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F77902B22DFA08B00F3468E /* PhotoDetail.swift in Sources */,
 				92E0920522DEBA54000A160C /* GradientView.swift in Sources */,
 				5F77901A22DE452900F3468E /* Photos.swift in Sources */,
 				5F77901822DE42A300F3468E /* Photo.swift in Sources */,
+				5F77902922DF977A00F3468E /* Content.swift in Sources */,
 				5F77900F22DE156900F3468E /* ApiManager.swift in Sources */,
-				5F778FFB22DE0E7F00F3468E /* ViewController.swift in Sources */,
+				5F778FFB22DE0E7F00F3468E /* PhotoDetailViewController.swift in Sources */,
+				5F77902F22DFA34100F3468E /* Tag.swift in Sources */,
+				5F77902222DF567900F3468E /* Favorite.swift in Sources */,
+				5F77903322DFA78300F3468E /* ActivityIndicatorManager.swift in Sources */,
 				92E091F722DE841C000A160C /* CheckInternet.swift in Sources */,
 				92E091FC22DE8D1D000A160C /* PhotoCell.swift in Sources */,
 				5F77902022DE4D9700F3468E /* HttpTask.swift in Sources */,
-				5F77901422DE375E00F3468E /* Car.swift in Sources */,
 				5F77901122DE33DF00F3468E /* Router.swift in Sources */,
+				5F77902422DF647600F3468E /* Person.swift in Sources */,
 				5F77901C22DE488C00F3468E /* Size.swift in Sources */,
 				92E091F922DE8710000A160C /* PhotoCellViewModel.swift in Sources */,
 				5F778FF922DE0E7F00F3468E /* AppDelegate.swift in Sources */,
 				5F77900122DE0E7F00F3468E /* Mezu_Flickr_App.xcdatamodeld in Sources */,
 				5F77901E22DE493E00F3468E /* Sizes.swift in Sources */,
 				92E091F222DE7CFB000A160C /* PhotoTableViewController.swift in Sources */,
+				5F77902D22DFA22C00F3468E /* PhotoDetailDate.swift in Sources */,
+				5F77902722DF8D0400F3468E /* Config.swift in Sources */,
 				5F77901622DE41F100F3468E /* User.swift in Sources */,
 				92E091FF22DE8DDF000A160C /* ImageView+URL.swift in Sources */,
+				5F77903122DFA4BC00F3468E /* PhotoDetailViewModel.swift in Sources */,
 				92E091F522DE7D36000A160C /* PhotoListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

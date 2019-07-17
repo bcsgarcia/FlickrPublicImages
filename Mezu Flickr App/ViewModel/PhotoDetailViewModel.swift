@@ -1,30 +1,24 @@
 //
-//  PhotoListViewModel.swift
+//  PhotoDetailViewModel.swift
 //  Mezu Flickr App
 //
-//  Created by Bruno Garcia on 16/07/19.
+//  Created by Garcia, Bruno (B.C.) on 17/07/19.
 //  Copyright © 2019 Garcia, Bruno (B.C.). All rights reserved.
 //
 
 import Foundation
 
-
-class PhotoListViewModel {
+class PhotoDetailViewModel {
     
-    private var photoList: Photos? {
+    var photoDetail: PhotoDetail? {
         didSet {
-            guard let pl = photoList else { return }
-            self.setupProperties(with: pl)
             self.isLoading = false
             self.didFinishFetch?()
             
         }
     }
     
-    var page = 0
     let apiManagerService: ApiManagerProtocol
-    
-    var photoCellViewModels = [PhotoCellViewModel]()
     
     var error: ApiError? {
         didSet { self.showAlertClosure?() }
@@ -45,7 +39,7 @@ class PhotoListViewModel {
     var didFinishFetch: (() -> ())?
     
     // MARK: - Network call
-    func fetchData() {
+    func fetchData(photoId: String) {
         isLoading = true
         
         if !CheckInternet.Connection() {
@@ -54,36 +48,14 @@ class PhotoListViewModel {
             return
         }
         
-        guard let page = plusOnePage() else {
-            isLoading = false
-            return
-        }
-        
-        apiManagerService.getPublicPhotos(userId: "49191827@N00", page: page, onComplete: { (photos) in
+        apiManagerService.getInfos(photoId: photoId, onComplete: { (photoDetail) in
             self.error = nil
-            self.photoList = photos
+            self.photoDetail = photoDetail
         }, onError: { (error) in
             self.isLoading = false
             self.error = error
             return
         })
-        
-    }
-    
-    // MARK: - UI Logic
-    private func plusOnePage() -> Int? {
-        page += 1
-        return page
-    }
-
-    private func setupProperties(with photoList: Photos) {
-        
-        
-        //if let photoList = photoList.photo {
-            self.photoCellViewModels = self.photoCellViewModels + photoList.photo.map({return PhotoCellViewModel(photo: $0, apiManagerService: self.apiManagerService)})
-            //print(self.repositoriesCellViewModels.count)
-        //}
-        
         
     }
     
