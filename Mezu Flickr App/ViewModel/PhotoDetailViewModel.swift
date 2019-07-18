@@ -48,14 +48,23 @@ class PhotoDetailViewModel {
             return
         }
         
-        apiManagerService.getInfos(photoId: photoId, onComplete: { (photoDetail) in
+        apiManagerService.getInfos(photoId: photoId) { (photoDetail, error) in
+            
+            if let error = error {
+                self.isLoading = false
+                self.error = error
+                return
+            }
+            
+            guard let photoDetail = photoDetail else {
+                self.isLoading = false
+                self.error = .messageError(message: "No photo found")
+                return
+            }
+            
             self.error = nil
             self.photoDetail = photoDetail
-        }, onError: { (error) in
-            self.isLoading = false
-            self.error = error
-            return
-        })
+        }
         
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F06AD9F22E0D8FE00F546BC /* PhotoDetailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06AD9E22E0D8FE00F546BC /* PhotoDetailTest.swift */; };
 		5F778FF922DE0E7F00F3468E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FF822DE0E7F00F3468E /* AppDelegate.swift */; };
 		5F778FFB22DE0E7F00F3468E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */; };
 		5F778FFE22DE0E7F00F3468E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F778FFC22DE0E7F00F3468E /* Main.storyboard */; };
@@ -30,6 +31,10 @@
 		5F77902F22DFA34100F3468E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902E22DFA34100F3468E /* Tag.swift */; };
 		5F77903122DFA4BC00F3468E /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */; };
 		5F77903322DFA78300F3468E /* ActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */; };
+		5F77904D22E0A5E100F3468E /* Mezu_Flickr_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77904C22E0A5E100F3468E /* Mezu_Flickr_AppTests.swift */; };
+		5F77905622E0A6DB00F3468E /* ApiManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77905522E0A6DA00F3468E /* ApiManagerMock.swift */; };
+		5F77908822E0AA8E00F3468E /* MockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77908722E0AA8E00F3468E /* MockHelper.swift */; };
+		5F77908B22E0CD9200F3468E /* PhotoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77908A22E0CD9200F3468E /* PhotoListTests.swift */; };
 		929E828A22DFF07C000E3BC4 /* Double+Timestamp+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E828922DFF07C000E3BC4 /* Double+Timestamp+Format.swift */; };
 		929E828C22E0099D000E3BC4 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E828B22E0099D000E3BC4 /* AlertHelper.swift */; };
 		92E091F222DE7CFB000A160C /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */; };
@@ -41,7 +46,18 @@
 		92E0920522DEBA54000A160C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0920422DEBA54000A160C /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5F77904F22E0A5E100F3468E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F778FED22DE0E7F00F3468E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F778FF422DE0E7F00F3468E;
+			remoteInfo = "Mezu Flickr App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5F06AD9E22E0D8FE00F546BC /* PhotoDetailTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailTest.swift; sourceTree = "<group>"; };
 		5F778FF522DE0E7F00F3468E /* Mezu Flickr App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mezu Flickr App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F778FF822DE0E7F00F3468E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +83,12 @@
 		5F77902E22DFA34100F3468E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorManager.swift; path = "../View/View Controller/ActivityIndicatorManager.swift"; sourceTree = "<group>"; };
+		5F77904A22E0A5E100F3468E /* Mezu Flickr AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mezu Flickr AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F77904C22E0A5E100F3468E /* Mezu_Flickr_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mezu_Flickr_AppTests.swift; sourceTree = "<group>"; };
+		5F77904E22E0A5E100F3468E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F77905522E0A6DA00F3468E /* ApiManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerMock.swift; sourceTree = "<group>"; };
+		5F77908722E0AA8E00F3468E /* MockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHelper.swift; sourceTree = "<group>"; };
+		5F77908A22E0CD9200F3468E /* PhotoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTests.swift; sourceTree = "<group>"; };
 		929E828922DFF07C000E3BC4 /* Double+Timestamp+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Timestamp+Format.swift"; sourceTree = "<group>"; };
 		929E828B22E0099D000E3BC4 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +108,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F77904722E0A5E100F3468E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5F778FF722DE0E7F00F3468E /* Mezu Flickr App */,
+				5F77904B22E0A5E100F3468E /* Mezu Flickr AppTests */,
 				5F778FF622DE0E7F00F3468E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5F778FF522DE0E7F00F3468E /* Mezu Flickr App.app */,
+				5F77904A22E0A5E100F3468E /* Mezu Flickr AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +190,43 @@
 				929E828B22E0099D000E3BC4 /* AlertHelper.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		5F77904B22E0A5E100F3468E /* Mezu Flickr AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F77908922E0CD4E00F3468E /* ViewModel Tests */,
+				5F77908622E0A8EE00F3468E /* Helper */,
+				5F77905422E0A6CB00F3468E /* Service */,
+				5F77904C22E0A5E100F3468E /* Mezu_Flickr_AppTests.swift */,
+				5F77904E22E0A5E100F3468E /* Info.plist */,
+			);
+			path = "Mezu Flickr AppTests";
+			sourceTree = "<group>";
+		};
+		5F77905422E0A6CB00F3468E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5F77905522E0A6DA00F3468E /* ApiManagerMock.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5F77908622E0A8EE00F3468E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5F77908722E0AA8E00F3468E /* MockHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5F77908922E0CD4E00F3468E /* ViewModel Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5F77908A22E0CD9200F3468E /* PhotoListTests.swift */,
+				5F06AD9E22E0D8FE00F546BC /* PhotoDetailTest.swift */,
+			);
+			path = "ViewModel Tests";
 			sourceTree = "<group>";
 		};
 		92E091EE22DE74AE000A160C /* View */ = {
@@ -237,6 +305,24 @@
 			productReference = 5F778FF522DE0E7F00F3468E /* Mezu Flickr App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5F77904922E0A5E100F3468E /* Mezu Flickr AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F77905122E0A5E100F3468E /* Build configuration list for PBXNativeTarget "Mezu Flickr AppTests" */;
+			buildPhases = (
+				5F77904622E0A5E100F3468E /* Sources */,
+				5F77904722E0A5E100F3468E /* Frameworks */,
+				5F77904822E0A5E100F3468E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F77905022E0A5E100F3468E /* PBXTargetDependency */,
+			);
+			name = "Mezu Flickr AppTests";
+			productName = "Mezu Flickr AppTests";
+			productReference = 5F77904A22E0A5E100F3468E /* Mezu Flickr AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -249,6 +335,10 @@
 				TargetAttributes = {
 					5F778FF422DE0E7F00F3468E = {
 						CreatedOnToolsVersion = 10.2;
+					};
+					5F77904922E0A5E100F3468E = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 5F778FF422DE0E7F00F3468E;
 					};
 				};
 			};
@@ -266,6 +356,7 @@
 			projectRoot = "";
 			targets = (
 				5F778FF422DE0E7F00F3468E /* Mezu Flickr App */,
+				5F77904922E0A5E100F3468E /* Mezu Flickr AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +369,13 @@
 				5F77900622DE0E8000F3468E /* LaunchScreen.storyboard in Resources */,
 				5F77900322DE0E8000F3468E /* Assets.xcassets in Resources */,
 				5F778FFE22DE0E7F00F3468E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F77904822E0A5E100F3468E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +418,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F77904622E0A5E100F3468E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F77908B22E0CD9200F3468E /* PhotoListTests.swift in Sources */,
+				5F77908822E0AA8E00F3468E /* MockHelper.swift in Sources */,
+				5F77905622E0A6DB00F3468E /* ApiManagerMock.swift in Sources */,
+				5F77904D22E0A5E100F3468E /* Mezu_Flickr_AppTests.swift in Sources */,
+				5F06AD9F22E0D8FE00F546BC /* PhotoDetailTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F77905022E0A5E100F3468E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F778FF422DE0E7F00F3468E /* Mezu Flickr App */;
+			targetProxy = 5F77904F22E0A5E100F3468E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F778FFC22DE0E7F00F3468E /* Main.storyboard */ = {
@@ -440,6 +558,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -494,6 +613,44 @@
 			};
 			name = Release;
 		};
+		5F77905222E0A5E100F3468E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mezu Flickr AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bcsg.Mezu-Flickr-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mezu Flickr App.app/Mezu Flickr App";
+			};
+			name = Debug;
+		};
+		5F77905322E0A5E100F3468E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Mezu Flickr AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bcsg.Mezu-Flickr-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mezu Flickr App.app/Mezu Flickr App";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -511,6 +668,15 @@
 			buildConfigurations = (
 				5F77900B22DE0E8000F3468E /* Debug */,
 				5F77900C22DE0E8000F3468E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F77905122E0A5E100F3468E /* Build configuration list for PBXNativeTarget "Mezu Flickr AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F77905222E0A5E100F3468E /* Debug */,
+				5F77905322E0A5E100F3468E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

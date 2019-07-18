@@ -102,7 +102,7 @@ class PhotoTableViewController: UITableViewController {
     // MARK: - IBActions
     @IBAction func searchClick(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Search Flickr User", message: "Enter a Username", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Flickr User Search", message: "Enter a Username", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.text = Config.sharedInstance.searchUser.username._content
         }

@@ -35,19 +35,16 @@ class PhotoCellViewModel {
     
     func getPerson() {
         
-        //let dispatchGroup = DispatchGroup()
-        
         if let person = Config.sharedInstance.userCache[self.photo.owner] {
             self.person = person
         } else {
-            //dispatchGroup.enter()
-            self.apiManagerService.getUserInfo(userId: self.photo.owner, onComplete: { (person) in
+            self.apiManagerService.getUserInfo(userId: self.photo.owner) { (person, error) in
+                
+                if let _ = error { return }
+                guard let person = person else { return }
+                
                 self.person = person
                 Config.sharedInstance.userCache[self.photo.owner] = person
-                //dispatchGroup.leave()
-            }) { (error) in
-                print(error)
-                //dispatchGroup.leave()
             }
         }
     }

@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mezu Flickr App/ViewModel/PhotoCellViewModel.swift"
-            timestampString = "585091348.073777"
+            timestampString = "585159361.9088269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "getPerson()"
-            landmarkType = "7">
+            startingLineNumber = "52"
+            endingLineNumber = "52">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -58,13 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mezu Flickr App/ViewModel/PhotoCellViewModel.swift"
-            timestampString = "585091348.073871"
+            timestampString = "585159361.908892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "getPerson()"
-            landmarkType = "7">
+            startingLineNumber = "52"
+            endingLineNumber = "52">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +70,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mezu Flickr App/ViewModel/PhotoCellViewModel.swift"
-            timestampString = "585091348.0739371"
+            timestampString = "585159361.9089381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "getPerson()"
-            landmarkType = "7">
+            startingLineNumber = "52"
+            endingLineNumber = "52">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mezu Flickr App/ViewModel/PhotoListViewModel.swift"
-            timestampString = "585091348.074024"
+            timestampString = "585159825.741887"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -106,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mezu Flickr App/ViewModel/PhotoListViewModel.swift"
-            timestampString = "585091348.074121"
+            timestampString = "585159825.7419519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -128,6 +122,38 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "loadImageUsingUrlString(urlString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mezu Flickr App/ViewModel/PhotoListViewModel.swift"
+            timestampString = "585159825.742065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mezu Flickr App/View/View Controller/PhotoTableViewController.swift"
+            timestampString = "585159361.91018"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "attemptFetchData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
