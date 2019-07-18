@@ -30,8 +30,10 @@ extension UIImageView {
                 if let data = try? Data(contentsOf: url) {
                     if let image = UIImage(data: data) {
                         DispatchQueue.main.async {
-                            imageCache.setObject(image, forKey: urlString as AnyObject)
+                            //let cacheImage = image
+                            //imageCache.setObject(image, forKey: urlString as AnyObject)
                             self.image = image
+                            
                         }
                     }
                 }

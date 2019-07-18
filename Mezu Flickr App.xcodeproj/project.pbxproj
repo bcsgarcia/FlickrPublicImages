@@ -30,6 +30,8 @@
 		5F77902F22DFA34100F3468E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77902E22DFA34100F3468E /* Tag.swift */; };
 		5F77903122DFA4BC00F3468E /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */; };
 		5F77903322DFA78300F3468E /* ActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */; };
+		929E828A22DFF07C000E3BC4 /* Double+Timestamp+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E828922DFF07C000E3BC4 /* Double+Timestamp+Format.swift */; };
+		929E828C22E0099D000E3BC4 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E828B22E0099D000E3BC4 /* AlertHelper.swift */; };
 		92E091F222DE7CFB000A160C /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */; };
 		92E091F522DE7D36000A160C /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F422DE7D36000A160C /* PhotoListViewModel.swift */; };
 		92E091F722DE841C000A160C /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E091F622DE841C000A160C /* CheckInternet.swift */; };
@@ -64,7 +66,9 @@
 		5F77902C22DFA22C00F3468E /* PhotoDetailDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailDate.swift; sourceTree = "<group>"; };
 		5F77902E22DFA34100F3468E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5F77903022DFA4BC00F3468E /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
-		5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorManager.swift; path = "../View/View Controller/ActivityIndicatorManager.swift"; sourceTree = "<group>"; };
+		929E828922DFF07C000E3BC4 /* Double+Timestamp+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Timestamp+Format.swift"; sourceTree = "<group>"; };
+		929E828B22E0099D000E3BC4 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		92E091F422DE7D36000A160C /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		92E091F622DE841C000A160C /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
@@ -150,7 +154,9 @@
 		5F77902522DF8CF400F3468E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */,
 				5F77902622DF8D0400F3468E /* Config.swift */,
+				929E828B22E0099D000E3BC4 /* AlertHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -180,7 +186,6 @@
 				5F778FFA22DE0E7F00F3468E /* PhotoDetailViewController.swift */,
 				92E091F122DE7CFB000A160C /* PhotoTableViewController.swift */,
 				92E0920422DEBA54000A160C /* GradientView.swift */,
-				5F77903222DFA78300F3468E /* ActivityIndicatorManager.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 		92E091FD22DE8DC7000A160C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				929E828922DFF07C000E3BC4 /* Double+Timestamp+Format.swift */,
 				92E091FE22DE8DDF000A160C /* ImageView+URL.swift */,
 			);
 			path = Extension;
@@ -284,6 +290,7 @@
 			files = (
 				5F77902B22DFA08B00F3468E /* PhotoDetail.swift in Sources */,
 				92E0920522DEBA54000A160C /* GradientView.swift in Sources */,
+				929E828C22E0099D000E3BC4 /* AlertHelper.swift in Sources */,
 				5F77901A22DE452900F3468E /* Photos.swift in Sources */,
 				5F77901822DE42A300F3468E /* Photo.swift in Sources */,
 				5F77902922DF977A00F3468E /* Content.swift in Sources */,
@@ -292,6 +299,7 @@
 				5F77902F22DFA34100F3468E /* Tag.swift in Sources */,
 				5F77902222DF567900F3468E /* Favorite.swift in Sources */,
 				5F77903322DFA78300F3468E /* ActivityIndicatorManager.swift in Sources */,
+				929E828A22DFF07C000E3BC4 /* Double+Timestamp+Format.swift in Sources */,
 				92E091F722DE841C000A160C /* CheckInternet.swift in Sources */,
 				92E091FC22DE8D1D000A160C /* PhotoCell.swift in Sources */,
 				5F77902022DE4D9700F3468E /* HttpTask.swift in Sources */,

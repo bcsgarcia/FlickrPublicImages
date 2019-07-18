@@ -12,20 +12,20 @@ import UIKit
 class ActivityIndicatorManager {
     
     // MARK: - UI Setup
-    class func start(indicator: UIActivityIndicatorView) {
+    class func start(_ indicator: UIActivityIndicatorView) {
         DispatchQueue.main.async {
             indicator.isHidden = false
             indicator.startAnimating()
         }
     }
     
-    class func stop(indicator: UIActivityIndicatorView) {
+    class func stop(_ indicator: UIActivityIndicatorView) {
         DispatchQueue.main.async {
             indicator.stopAnimating()
         }
     }
     
-    class func initialize(indicator: UIActivityIndicatorView, on navigationController: UINavigationController) {
+    class func initialize(_ indicator: UIActivityIndicatorView, on navigationController: UINavigationController) {
         DispatchQueue.main.async {
             //indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
             indicator.style = UIActivityIndicatorView.Style.whiteLarge

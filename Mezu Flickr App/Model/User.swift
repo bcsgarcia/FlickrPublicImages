@@ -11,10 +11,12 @@ import Foundation
 class User: Codable {
     var id: String = ""
     var nsid: String = ""
-    var username: [String:String] = [:]
+    var username: Content = Content()
 }
 
 class ResponseUser: Codable {
-    var user: User = User()
-    var stat: String = ""
+    var user: User?
+    var stat: String?
+    var code: Int?
+    var message: String?
 }

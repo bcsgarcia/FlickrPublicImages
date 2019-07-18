@@ -15,6 +15,7 @@ enum ApiError {
     case noResponse
     case noData
     case httpError(code: Int)
+    case messageError(message: String)
     case noInternetConnection
 }
 

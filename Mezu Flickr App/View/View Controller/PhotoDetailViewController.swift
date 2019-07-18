@@ -11,9 +11,28 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
 
     
+    //Photo
+    @IBOutlet weak var lblCommentCount: UILabel!
+    @IBOutlet weak var lblFavoriteCount: UILabel!
+    @IBOutlet weak var ivPhoto: UIImageView!
+    
+    //Person
+    @IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var ivProfile: UIImageView!
+    
+    //PhotoDetail
+    @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblViewCount: UILabel!
+    @IBOutlet weak var lblTags: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    
+    
+    
     var indicator = UIActivityIndicatorView()
     var viewModel = PhotoDetailViewModel()
     var photo: Photo?
+    var person: Person?
     
     var checkInternetTimer: Timer!
     let checkInternetTimeInterval : TimeInterval = 3
@@ -22,33 +41,57 @@ class PhotoDetailViewController: UIViewController {
         super.viewDidLoad()
         guard let navigationController = self.navigationController else { return }
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        ActivityIndicatorManager.initialize(indicator: indicator, on: navigationController)
+        ActivityIndicatorManager.initialize(indicator, on: navigationController)
         attemptFetchData()
+    }
+    
+    func setPhotoProperties() {
+        guard let photo = self.photo else {
+            return
+        }
+        
+        lblCommentCount.text = photo.count_comments
+        lblFavoriteCount.text = photo.count_faves
+        ivPhoto.loadImageUsingUrlString(urlString: photo.url_n)
+    }
+    
+    func setPersonProperties() {
+        guard let person = person else {
+            return
+        }
+        
+        lblUsername.text = person.username._content
+        ivProfile.layer.cornerRadius = 30.0
+        ivProfile.layer.masksToBounds = true
+        if let url = person.profileUrl {
+            ivProfile.loadImageUsingUrlString(urlString: url)
+        }
     }
     
     // MARK: - Fetch Data Function
     func attemptFetchData() {
         
-        guard let photo = self.photo else {
-            return
-        }
+        setPhotoProperties()
+        setPersonProperties()
         
-        ActivityIndicatorManager.start(indicator: indicator)
+        guard let photo = self.photo else { return }
+        
+        ActivityIndicatorManager.start(indicator)
         
         viewModel.updateLoadingStatus = {
             let _ = self.viewModel.isLoading ?
-                ActivityIndicatorManager.start(indicator: self.indicator) :
-                ActivityIndicatorManager.stop(indicator: self.indicator)
+                ActivityIndicatorManager.start(self.indicator) :
+                ActivityIndicatorManager.stop(self.indicator)
         }
         
         viewModel.showAlertClosure = {
             if let error = self.viewModel.error {
                 switch error {
                 case .noResponse, .noData:
-                    self.showAlert("Problema ao consultar os repositórios, verifique sua conexão com a internet.")
+                    AlertHelper.showAlert("No data found", view: self)
                 case .noInternetConnection:
                     self.initInternetConnectionCheck()
-                    self.showAlert("Por favor verifique sua conexão com a internet!")
+                    AlertHelper.showAlert("Please check your internet connection", view: self)
                 default:
                     print(error)
                 }
@@ -56,27 +99,28 @@ class PhotoDetailViewController: UIViewController {
         }
         
         viewModel.didFinishFetch = {
-            /*
-            self.photoCellViewModel = self.viewModel.photoCellViewModels
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                guard let photoDetail = self.viewModel.photoDetail else {
+                    return
+                }
+                
+                self.lblTitle.text = photoDetail.title._content
+                self.lblDescription.text = photoDetail.description._content
+                self.lblViewCount.text = photoDetail.views
+                
+                if let timestamp = Double(photoDetail.dates.posted) {
+                    self.lblDate.text = "\( timestamp.getDateStringFromUTC() )"
+                }
+                self.lblTags.text = "Tags: \(photoDetail.tags.tag.map({ return $0.raw }).joined(separator: ", "))"
             }
-            */
-            
-            guard let photoDetail = self.viewModel.photoDetail else {
-                return
-            }
-            
-            print(photoDetail.description._content)
         }
         
         viewModel.fetchData(photoId: photo.id)
     }
     
-    
     func initInternetConnectionCheck(){
         if checkInternetTimer == nil {
-            ActivityIndicatorManager.start(indicator: indicator)
+            ActivityIndicatorManager.start(indicator)
             checkInternetTimer = Timer.scheduledTimer(timeInterval: checkInternetTimeInterval, target: self, selector: #selector(checkInernet), userInfo: nil, repeats: true)
         }
     }
@@ -85,18 +129,35 @@ class PhotoDetailViewController: UIViewController {
         if CheckInternet.Connection() {
             checkInternetTimer.invalidate()
             checkInternetTimer = nil
-            ActivityIndicatorManager.stop(indicator: indicator)
+            ActivityIndicatorManager.stop(indicator)
             attemptFetchData()
         }
     }
     
     
-    func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+   
+
+    @IBAction func photoClick(_ sender: Any) {
+        
+       // let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: ivPhoto.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        
     }
-
-
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
+    
 }
 

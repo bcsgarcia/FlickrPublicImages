@@ -21,24 +21,38 @@ class PhotoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator()
+        //activityIndicator()
+        
+        guard let navigationController = self.navigationController else { return }
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        ActivityIndicatorManager.initialize(indicator, on: navigationController)
+        
         attemptFetchData()
+        
+        print(Config.sharedInstance.searchUser.nsid == "")
+        
     }
     
     // MARK: - Fetch Data Function
     func attemptFetchData() {
-        self.activityIndicatorStart()
+        //self.activityIndicatorStart()
+        ActivityIndicatorManager.start(indicator)
         
-        viewModel.updateLoadingStatus = { let _ = self.viewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop() }
+        viewModel.updateLoadingStatus = {
+            let _ = self.viewModel.isLoading ?
+                ActivityIndicatorManager.start(self.indicator) :
+                ActivityIndicatorManager.stop(self.indicator) }
         
         viewModel.showAlertClosure = {
             if let error = self.viewModel.error {
                 switch error {
                 case .noResponse, .noData:
-                    self.showAlert("Problema ao consultar os repositórios, verifique sua conexão com a internet.")
+                    AlertHelper.showAlert("Problema ao consultar os repositórios, verifique sua conexão com a internet.", view: self)
                 case .noInternetConnection:
                     self.initInternetConnectionCheck()
-                    self.showAlert("Por favor verifique sua conexão com a internet!")
+                    AlertHelper.showAlert("Por favor verifique sua conexão com a internet!", view: self)
+                case .messageError(let message):
+                    AlertHelper.showAlert(message, view: self)
                 default:
                     print(error)
                 }
@@ -52,12 +66,28 @@ class PhotoTableViewController: UITableViewController {
             }
         }
         
+        viewModel.didFinishUserFetch = {
+            DispatchQueue.main.async {
+                
+                if let realname = Config.sharedInstance.searchPerson.realname {
+                    if realname._content != "" {
+                        self.title = "Flickr - \(realname._content)"
+                        return
+                    }
+                }
+                
+                self.title = "Flickr - \(Config.sharedInstance.searchPerson.username._content)"
+                
+                
+            }
+        }
+        
         viewModel.fetchData()
     }
     
     func initInternetConnectionCheck(){
         if checkInternetTimer == nil {
-            activityIndicatorStart()
+            ActivityIndicatorManager.start(indicator)
             checkInternetTimer = Timer.scheduledTimer(timeInterval: checkInternetTimeInterval, target: self, selector: #selector(checkInernet), userInfo: nil, repeats: true)
         }
     }
@@ -66,12 +96,14 @@ class PhotoTableViewController: UITableViewController {
         if CheckInternet.Connection() {
             checkInternetTimer.invalidate()
             checkInternetTimer = nil
-            activityIndicatorStop()
+            //activityIndicatorStop()
+            ActivityIndicatorManager.stop(indicator)
             attemptFetchData()
         }
     }
     
     // MARK: - UI Setup
+    /*
     private func activityIndicatorStart() {
         DispatchQueue.main.async {
             self.indicator.startAnimating()
@@ -84,26 +116,46 @@ class PhotoTableViewController: UITableViewController {
         }
     }
     
+    
     func activityIndicator() {
         DispatchQueue.main.async {
             self.indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
             self.indicator.style = UIActivityIndicatorView.Style.whiteLarge
             self.indicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            
             self.indicator.center = self.view.center
-            
-            //indicator.hidesWhenStopped = true
             self.navigationController?.view.addSubview(self.indicator)
-            //self.view.addSubview(self.indicator)
         }
-    }
+     }
+ 
     
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+ */
+    
+    
+    @IBAction func searchClick(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Search Flickr User", message: "Enter a Username", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = Config.sharedInstance.searchUser.username._content
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            if let username = textField?.text {
+                self.viewModel.fetchUser(username: username)
+            }
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+
+
 
 //TableViewDataSource extension func
 extension PhotoTableViewController {
@@ -133,39 +185,19 @@ extension PhotoTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let vm = photoCellViewModel[indexPath.row]
-        
         performSegue(withIdentifier: self.segueIdentifier, sender: vm)
-        
-        /*guard let url = URL(string: repositoryCellViewModel.url) else {
-            return
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-         */
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueIdentifier {
             if let photoDetailVC = segue.destination as? PhotoDetailViewController{
-                //detailViewController.VIN = (sender as! Vehicle).vin //Or pass any values
-                
-                guard let photoCellViewModel = sender as? PhotoCellViewModel else {
-                    return
-                }
-                
+                guard let photoCellViewModel = sender as? PhotoCellViewModel else { return }
                 photoDetailVC.photo = photoCellViewModel.photo
+                photoDetailVC.person = photoCellViewModel.person
             }
         }
-        //self.hidesBottomBarWhenPushed = false
     }
-        
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.photoCellViewModels.count-2 {

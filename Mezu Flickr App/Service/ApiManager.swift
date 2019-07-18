@@ -31,7 +31,13 @@ class ApiManager : ApiManagerProtocol {
             HttpTask.executeTaskWith(request: request, onComplete: { (data) in
                 do {
                     let responseUser = try JSONDecoder().decode(ResponseUser.self, from: data)
-                    onComplete(responseUser.user)
+                    if let message = responseUser.message {
+                        onError(.messageError(message: message))
+                    } else {
+                        if let user = responseUser.user {
+                            onComplete(user)
+                        }
+                    }
                 } catch {
                     print("findBy")
                     return onError(.invalidJSON)

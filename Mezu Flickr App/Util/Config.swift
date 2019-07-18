@@ -14,4 +14,7 @@ class Config {
     
     var userCache: [String: Person] = [:]
     
+    var searchUser: User = User()
+    var searchPerson: Person = Person()
+    
 }

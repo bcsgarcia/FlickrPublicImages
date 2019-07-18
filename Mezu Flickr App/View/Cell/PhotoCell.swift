@@ -17,39 +17,23 @@ class PhotoCell: UITableViewCell {
     @IBOutlet weak var lblComentCount: UILabel!
     @IBOutlet weak var ivProfile: UIImageView!
     
-    
-    
     var photoCellViewModel: PhotoCellViewModel! {
         didSet {
             
             self.lblComentCount.text = self.photoCellViewModel.photo.count_comments
             self.lblFavoriteCount.text = self.photoCellViewModel.photo.count_faves
-            self.lblUsername.text = self.photoCellViewModel.person.username._content
+            self.lblUsername.text = self.photoCellViewModel.photo.title//self.photoCellViewModel.person.username._content
             
-            //self.ivPhoto.image = self.photoCellViewModel.photoImage
+            
             self.ivPhoto.loadImageUsingUrlString(urlString: self.photoCellViewModel.photo.url_n)
-            self.ivProfile.loadImageUsingUrlString(urlString: self.photoCellViewModel.imgProfileUrl)
-   
-            /*
-            photoCellViewModel.updatePhotoImage = {
-                DispatchQueue.main.async {
-                    self.ivPhoto.image = self.photoCellViewModel.photoImage
-                }
-            }*/
-   
-            //self.ivProfile.image = self.photoCellViewModel.profileImage
+            if let url = self.photoCellViewModel.person.profileUrl {
+                self.ivProfile.loadImageUsingUrlString(urlString: url )
+            }
             
-            /*photoCellViewModel.updateProfileImage = {
-                DispatchQueue.main.async {
-                    self.ivProfile.image = self.photoCellViewModel.profileImage
-                }
-            }*/
- 
-            
-            self.ivProfile.layer.cornerRadius = 15.0
+            self.ivProfile.layer.cornerRadius = 18.0
             self.ivProfile.layer.masksToBounds = true
-            self.ivProfile.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
-            self.ivProfile.layer.borderWidth = 1.0;
+            //self.ivProfile.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+            //self.ivProfile.layer.borderWidth = 1.0;
             
         }
     }

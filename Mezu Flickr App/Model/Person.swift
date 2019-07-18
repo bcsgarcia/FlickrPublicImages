@@ -16,8 +16,11 @@ class Person: Codable {
     var id: String = ""
     var nsid: String = ""
     var iconfarm: Int = 0
-    var iconserver: String = ""
+    var iconserver: String = "" 
     var username: Content = Content()
+    
+    var realname: Content? 
+    var profileUrl: String?
 }
 
 class ResponsePerson: Codable {

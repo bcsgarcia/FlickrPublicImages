@@ -43,10 +43,43 @@ class PhotoListViewModel {
     var showAlertClosure: (() -> ())?
     var updateLoadingStatus: (() -> ())?
     var didFinishFetch: (() -> ())?
+    var didFinishUserFetch: (() -> ())?
+    
+    
+    func fetchUser(username: String) {
+        isLoading = true
+        apiManagerService.findBy(username: username, onComplete: { (user) in
+            Config.sharedInstance.searchUser = user
+            
+            self.fetchPerson()
+            self.photoCellViewModels = [PhotoCellViewModel]()
+            self.page = 0
+            self.fetchData()
+        }) { (error) in
+            self.error = error
+            self.isLoading = false
+        }
+    }
+    
+    fileprivate func fetchPerson(){
+        apiManagerService.getUserInfo(userId: Config.sharedInstance.searchUser.nsid, onComplete: { (person) in
+            Config.sharedInstance.userCache[person.nsid] = person
+            Config.sharedInstance.searchPerson = person
+            self.didFinishUserFetch?()
+        }) { (error) in
+            self.error = error
+        }
+    }
+    
     
     // MARK: - Network call
     func fetchData() {
         isLoading = true
+        
+        if Config.sharedInstance.searchUser.nsid == "" {
+            fetchUser(username: "eyetwist")
+            return
+        }
         
         if !CheckInternet.Connection() {
             isLoading = false
@@ -59,7 +92,7 @@ class PhotoListViewModel {
             return
         }
         
-        apiManagerService.getPublicPhotos(userId: "49191827@N00", page: page, onComplete: { (photos) in
+        apiManagerService.getPublicPhotos(userId: Config.sharedInstance.searchUser.nsid, page: page, onComplete: { (photos) in
             self.error = nil
             self.photoList = photos
         }, onError: { (error) in
