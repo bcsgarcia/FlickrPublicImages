@@ -78,15 +78,20 @@ class PhotoListTests: XCTestCase {
             return
         }
         
-        let expectation = self.expectation(description: "fetchngData")
+        let expectation = self.expectation(description: "fetchngDataError")
         sut.showAlertClosure = { expectation.fulfill() }
         
         sut.fetchData()
-        apiManager.fetchFindByFail(error: .messageError(message: "User not found"))
         
-        waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertNotNil(sut.error, "sut error deve ser 'User not found'.")
- 
+        if Config.sharedInstance.searchUser.nsid == "" {
+            apiManager.fetchFindByFail(error: .messageError(message: "User not found"))
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssertNotNil(sut.error, "sut error deve ser 'User not found'.")
+        } else {
+            apiManager.fetchGetPublicPhotosFail(error: .invalidJSON)
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssertNotNil(sut.error, "sut error deve ser .invalidJson")
+        }
     }
 
     func testPerformanceExample() {
