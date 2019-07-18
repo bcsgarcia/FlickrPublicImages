@@ -20,8 +20,6 @@ protocol ApiManagerProtocol {
 
 class ApiManager : ApiManagerProtocol {
     
-    
-    
     //let apiKey = "7ec9d191b3831b20d5b7695d49db8946"
     //let apiSecret = "a05ae08ca0aec956"
     

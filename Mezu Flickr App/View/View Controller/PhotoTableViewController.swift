@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
 
+    // MARK: - Properties
     var viewModel = PhotoListViewModel()
     var photoCellViewModel = [PhotoCellViewModel]()
     var indicator = UIActivityIndicatorView()
@@ -19,18 +20,13 @@ class PhotoTableViewController: UITableViewController {
     let cellId = "photoCell"
     let segueIdentifier = "segueDetail"
     
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        //activityIndicator()
-        
         guard let navigationController = self.navigationController else { return }
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         ActivityIndicatorManager.initialize(indicator, on: navigationController)
-        
         attemptFetchData()
-        
-        print(Config.sharedInstance.searchUser.nsid == "")
-        
     }
     
     // MARK: - Fetch Data Function
@@ -85,6 +81,7 @@ class PhotoTableViewController: UITableViewController {
         viewModel.fetchData()
     }
     
+    // MARK: - Internet Connection
     func initInternetConnectionCheck(){
         if checkInternetTimer == nil {
             ActivityIndicatorManager.start(indicator)
@@ -102,40 +99,7 @@ class PhotoTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - UI Setup
-    /*
-    private func activityIndicatorStart() {
-        DispatchQueue.main.async {
-            self.indicator.startAnimating()
-        }
-    }
-    
-    private func activityIndicatorStop() {
-        DispatchQueue.main.async {
-            self.indicator.stopAnimating()
-        }
-    }
-    
-    
-    func activityIndicator() {
-        DispatchQueue.main.async {
-            self.indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            self.indicator.style = UIActivityIndicatorView.Style.whiteLarge
-            self.indicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            self.indicator.center = self.view.center
-            self.navigationController?.view.addSubview(self.indicator)
-        }
-     }
- 
-    
-    func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
- */
-    
-    
+    // MARK: - IBActions
     @IBAction func searchClick(_ sender: Any) {
         
         let alert = UIAlertController(title: "Search Flickr User", message: "Enter a Username", preferredStyle: .alert)

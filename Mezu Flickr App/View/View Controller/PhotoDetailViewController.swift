@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
 
+    // MARK: - IBOutlet
     
     //Photo
     @IBOutlet weak var lblCommentCount: UILabel!
@@ -28,7 +29,7 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var lblDate: UILabel!
     
     
-    
+    // MARK: - Properties
     var indicator = UIActivityIndicatorView()
     var viewModel = PhotoDetailViewModel()
     var photo: Photo?
@@ -37,6 +38,7 @@ class PhotoDetailViewController: UIViewController {
     var checkInternetTimer: Timer!
     let checkInternetTimeInterval : TimeInterval = 3
     
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationController = self.navigationController else { return }
@@ -118,6 +120,7 @@ class PhotoDetailViewController: UIViewController {
         viewModel.fetchData(photoId: photo.id)
     }
     
+    // MARK: - Internet Connection
     func initInternetConnectionCheck(){
         if checkInternetTimer == nil {
             ActivityIndicatorManager.start(indicator)
@@ -133,13 +136,9 @@ class PhotoDetailViewController: UIViewController {
             attemptFetchData()
         }
     }
-    
-    
    
-
+    // MARK: - IBActions
     @IBAction func photoClick(_ sender: Any) {
-        
-       // let imageView = sender.view as! UIImageView
         let newImageView = UIImageView(image: ivPhoto.image)
         newImageView.frame = UIScreen.main.bounds
         newImageView.backgroundColor = .black
@@ -150,7 +149,6 @@ class PhotoDetailViewController: UIViewController {
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {

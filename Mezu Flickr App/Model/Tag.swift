@@ -8,15 +8,6 @@
 
 import Foundation
 
-/*
-"id": "1566080-48294642212-33635640",
-"author": "49191827@N00",
-"authorname": "eyetwist",
-"raw": "eyetwist kevin balluff",
-"_content": "eyetwistkevinballuff",
-"machine_tag": 0
- */
-
 class Tag: Codable {
     var id: String = ""
     var authorname: String = ""

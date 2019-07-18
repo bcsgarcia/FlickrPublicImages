@@ -10,8 +10,6 @@ import Foundation
 
 class Size: Codable {
     var label: String = ""
-    //var width: String = ""
-    //var height: String = ""
     var source: String = ""
     var url: String = ""
     var media: String = ""

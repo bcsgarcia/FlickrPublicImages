@@ -8,16 +8,6 @@
 
 import Foundation
 
-/*
-"dates": {
-    "posted": "1563236442",
-    "taken": "2016-05-20 16:09:34",
-    "takengranularity": "0",
-    "takenunknown": "0",
-    "lastupdate": "1563281796"
-}
-*/
-
 class PhotoDetailDate: Codable {
     var posted: String = ""
     var taken: String = ""
